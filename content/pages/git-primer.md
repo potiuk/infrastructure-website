@@ -3,11 +3,12 @@ license: https://www.apache.org/licenses/LICENSE-2.0
 
 This document is a primer on using Git for an Apache Software Foundation project.
 
-## Contents ##
+## Contents
 
   - <a href="#repotypes">Repository types</a>
     -  <a href="#publicprivate">Public and private repositories</a>
   - <a href="repocheckout">Repository checkout</a>
+  - <a href="asfyanl">Using .asf.yaml</a>
   - <a href="#committers">Committers: getting started</a>
   - <a href="#windowsusers">Windows users</a>
   - <a href="#lineendings">Line endings</a>
@@ -49,10 +50,22 @@ The repository URLs are all of the form:
 https://gitbox.apache.org/repos/asf/reponame.git
 ```
 
-### Cloning a repository ###
+### Cloning a repository
 
   - **Committers**: `$ git clone https://gitbox.apache.org/repos/asf/reponame.git`
   - **Non-Committers**: `$ git clone http://gitbox.apache.org/repos/asf/reponame.git`
+
+
+<h2 id="asfyaml">Using .asf.yaml<a class="headerlink" href="asfyaml" title=title="Permanent link">&para;</a></h2>
+
+`.asf.yaml` is a branch-specific <a href="https://en.wikipedia.org/wiki/YAML" target="_blank">YAML</a> configuration file that a project may create (using a text editor of your choice) and put in the root of a Git repository to control features such as
+
+  - notification schemes
+  - website staging
+  - GitHub settings
+  - Pelican builds
+
+For details on how .asf.yaml can help you manage your GitHub settings, see <a href="https://github.com/apache/infrastructure-asfyaml/edit/main/README.md" target="blank">github.com/apache/infrastructure-asfyaml/edit/main/README.md</a>.
 
 <h2 id="committers">Committers: getting started<a class="headerlink" href="#committers" title="Permanent link">&para;</a></h2>
 
@@ -119,7 +132,7 @@ Further details and attributes for handling line endings differently per file ty
 
 <h2 id="trouble">Troubleshooting<a class="headerlink" href="#trouble" title="Permanent link">&para;</a></h2>
 
-#### no DAV locking ####
+#### no DAV locking
 
 If you get an error like this:
 
