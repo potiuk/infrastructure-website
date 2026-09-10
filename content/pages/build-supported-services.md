@@ -93,6 +93,7 @@ In addition to the official GitHub documentation, Infra maintains:
   - [GitHub Actions and Secrets](github-actions-secrets.html), for handling credentials in workflows.
   - The [GitHub Actions Policy](github-actions-policy.html), which sets the limits and requirements every ASF workflow must meet.
   - [GitHub Actions](services.html#github-actions) on the Services and Tools page, which explains why the shared runner queues build up and how your project can help.
+  - The <a href="https://cwiki.apache.org/confluence/spaces/INFRA/pages/430408443/GitHub+Actions+Recommended+Practices" target="_blank">GitHub Actions Recommended Practices</a> wiki page (requires a committer or Member login).
 
 <h2 id="artifactory">Artifactory<a class="headerlink" href="#artifactory" title="Permanent link">&para;</a></h2>
 

@@ -84,9 +84,11 @@ Unless you say otherwise, a group covers version updates only. See [Group securi
 
 <h3 id="group-security-updates">Group security updates<a class="headerlink" href="#group-security-updates" title="Permanent link">&para;</a></h3>
 
-Every project is scanned now &mdash; by GitHub's own Dependabot alerts, and by the scanners that downstream users and their employers run against our releases &mdash; so we all see **way** more security updates than we used to, and everyone rushes to fix what the scanners report as quickly as they can. That is the right instinct, but it has a cost: by default a `groups` block applies only to *version* updates, so security updates keep opening **one pull request per alert**, each with a full CI run behind it. A single busy week of advisories in a widely-used library can put hundreds of extra builds into the [shared GitHub Actions queue](services.html#github-actions).
+Every project repository is now scanned by GitHub's Dependabot alerts and by the scanners that downstream users and their employers run against ASF project releases, so we now see many more security updates than we used to. Projects rush to fix what the scanners report as quickly as they can.
 
-Set `applies-to` on a group to batch security fixes as well. A group with `applies-to: security-updates` collects every outstanding security fix in that ecosystem into one pull request:
+That response has a cost: by default, a `groups` block applies only to **version** updates, so security updates open **one pull request per alert**, each with a full CI run behind it. This can add hundreds of builds into the [shared GitHub Actions queue](services.html#github-actions).
+
+A group with `applies-to: security-updates` set collects all outstanding security fixes for that group into one pull request:
 
 ```yaml
 version: 2
@@ -110,7 +112,7 @@ updates:
 
 When `applies-to` is omitted, the group defaults to `version-updates`, which is why a configuration that groups version updates can still produce a flood of individual security PRs.
 
-Grouping is a trade-off worth understanding: a grouped pull request is all-or-nothing, so one update in the batch that breaks your build holds up the rest of the fixes in it. If your project needs to land a critical fix in isolation, narrow the group's `patterns` to leave that dependency out, or keep a separate group for the dependencies you want to review one at a time.
+Grouping is a trade-off: a grouped pull request is all-or-nothing, so one update in the batch that breaks your build holds up the rest of the fixes in it. If your project needs to land a critical fix in isolation, narrow the group's `patterns` to leave that dependency out, or keep a separate group for the dependencies you want to review one at a time.
 
 For the full syntax, see the <a href="https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups" target="_blank">Dependabot `groups` configuration reference</a>.
 
