@@ -22,6 +22,8 @@ Due to misconfigurations in their builds, some projects have been using unsuppor
 
 Projects whose builds consistently cross the maximum use limits will lose their access to GitHub Actions until they fix their build configurations.
 
+**Note**: Projects should review these recommended practices from Git: <a href="https://cwiki.apache.org/confluence/spaces/INFRA/pages/430408443/GitHub+Actions+Recommended+Practices" target="_blank">cwiki.apache.org/confluence/spaces/INFRA/pages/430408443/GitHub+Actions+Recommended+Practices</a>.
+
 ### Avoid using the 'pull_request_target' trigger
 
 You **MUST NOT** use `pull_request_target` as a trigger on **ANY** action that exports **ANY** confidential credentials or tokens such as `GITHUB_TOKEN` or `NPM_TOKEN`. An explantion of the risks related to this trigger, and the very limited circumstances in which it may be used, is at <a href="https://cwiki.apache.org/confluence/display/INFRA/GHA-dangers+of+pull_request_target" target="_blank">/cwiki.apache.org/confluence/display/INFRA/GHA-dangers+of+pull_request_target</a>.
